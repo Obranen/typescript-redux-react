@@ -1,11 +1,11 @@
 import React, {FC, useEffect} from 'react'
-import {useTypedSelector} from '../../hooks/useTypedSelector';
-import {fetchUsers} from '../../store/actionCreators/user';
-import {useActions} from '../../hooks/useActions';
+import {useSelectorHook} from '../../hooks/useSelectorHook';
+import {fetchUsers} from '../../store/actions/userAction';
+import {useDispatchHook} from '../../hooks/useDispatchHook';
 
 const UserList: FC = () => {
-    const {users, loading, error} = useTypedSelector(state => state.user)
-    const {fetchUsers} = useActions()
+    const {users, loading, error} = useSelectorHook(state => state.userReducer)
+    const {fetchUsers} = useDispatchHook()
 
     useEffect(() => {
       fetchUsers()
