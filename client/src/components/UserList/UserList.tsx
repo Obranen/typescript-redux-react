@@ -6,7 +6,6 @@ import {useDispatchHook} from '../../hooks/useDispatchHook';
 const UserList: FC = () => {
     const {users, loading, error} = useSelectorHook(state => state.userReducer)
     const {fetchUsers} = useDispatchHook()
-
     useEffect(() => {
       fetchUsers()
     }, [])

@@ -16,6 +16,11 @@ export const userReducer = (state = initialState, action: UserAction): IUserStat
       }
     case UserActionTypes.FETCH_USERS_SUCCESS:
       return {
+        // Пример:
+        // ...state,
+        // users: state.users.concat(action.payload)
+        // users: [action.payload, ...state.users]
+        // users: [...state.users, action.payload]
         loading: false,
         error: null,
         users: action.payload
